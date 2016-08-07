@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+           ">
+
+	<bean id="gameCycler" class="game_logic.GameCycler">
+  		<property name="games">
+  			<list>
+  		  		<ref bean="curvyNumbers"/>
+  		  		<ref bean="composerTactical"/>
+  		  		<ref bean="composerTier2"/>
+  		  		<ref bean="composerTier3"/>
+  		  		<ref bean="composerTier1"/>
+  			</list>
+  		</property>
+	</bean>
+
+  	<bean id="composerTactical" class="ComposerGame">
+  		<property name="games">
+			<list>
+   				<ref bean="doublePlusOneTier3"/>   				
+   				<ref bean="familyPartners"/>   				
+   				<ref bean="rightNextToEachOther"/>   				
+  			</list>
+  		</property>
+	</bean>
+	
+  	<bean id="composerTier3" class="ComposerGame">
+  		<property name="games">
+  			<list>
+  		  		<ref bean="twoLadderSubtraction"/>
+  		  		<ref bean="familyPartners"/>
+   				<ref bean="numberInTheMiddle"/>	
+   				<ref bean="countByThrees"/>
+   				<ref bean="magicNine"/>   				
+  			</list>
+  		</property>
+	</bean>
+
+	<bean id="composerTier2" class="ComposerGame">
+  		<property name="games">
+  			<list>
+   				<ref bean="doublesTier3"/>	
+   				<ref bean="doublesSubtractionTier3"/>
+   				<ref bean="magicNine"/>
+   				<ref bean="numberInTheMiddle"/>	
+
+   				<ref bean="numberMinusZero"/>	
+   				<ref bean="doublesTier2"/>	
+   				<ref bean="numberMinusNumber"/> 		
+   				<ref bean="doublePlusOne"/>	
+  			</list>
+  		</property>
+	</bean>
+
+	<bean id="composerTier1" class="ComposerGame">
+  		<property name="games">
+  			<list>
+  		  		<ref bean="twoLadder"/>  		
+  				<ref bean="rightNextToEachOther"/>
+   				<ref bean="doublesSubtraction"/>			
+
+   				<ref bean="zero"/>				
+   				<ref bean="backwardsOne"/>
+				<ref bean="doublesAddition"/>
+
+   				<ref bean="numberPlusOne"/> 				
+  			</list>
+  		</property>
+	</bean>
+
+	<bean id="doublePlusOneTier3" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Double +1"/>
+	  	<property name="exprSpec" value="4+5;5+4"/>
+	</bean>
+
+	<bean id="curvyNumbers" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Curvy Numbers"/>
+	  	<property name="exprSpec" value="5+8;8+5;8-3;8-5;13-5;13-8"/>
+	</bean>
+
+	<bean id="twoLadderSubtraction" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Two Ladder Subtraction"/>
+	  	<property name="exprSpec" value="10-2;8-2;6-2"/>
+	</bean>
+
+	<bean id="familyPartners" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Family Partners"/>
+	  	<property name="exprSpec" value="5-2;5-3;7-3;7-4"/>
+	</bean>
+
+	<bean id="doublesSubtractionTier3" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Doubles Subtraction"/>
+	  	<property name="exprSpec" value="18-9"/>
+	</bean>
+
+	<bean id="doublesTier3" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Doubles"/>
+	  	<property name="exprSpec" value="8+8;16-8"/>
+	</bean>
+
+	<bean id="countByThrees" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Count by Threes"/>
+	  	<property name="exprSpec" value="3+6;6+3;9-3;9-6"/>
+	</bean>
+
+	<bean id="magicNine" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Magic 9"/>
+	  	<property name="exprSpec" value="2+9;3+9;4+9;5+9;6+9;7+9;8+9;9+2;9+3;9+4;9+5;9+6;9+7;9+8;9+9"/>
+	  	<!--
+	  	<property name="exprSpec" value="9+2;9+3;9+4;9+5;9+6;9+7;9+8;9+9"/>
+	  	-->
+	</bean>
+
+	<bean id="numberInTheMiddle" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Number in the Middle"/>
+	  	<property name="exprSpec" value="3+5;5+3;4+6;6+4"/>
+	</bean>
+
+	<bean id="doublesTier2" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Doubles"/>
+	  	<property name="exprSpec" value="6+6;12-6;7+7;14-7"/>
+	</bean>
+
+	<bean id="doublePlusOne" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Double +1"/>
+	  	<property name="exprSpec" value="2+3;3+2;3+4;4+3"/>
+	</bean>
+
+	<bean id="twoLadder" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="2 Ladder"/>
+<!--
+	  	<property name="exprSpec" value="0+2;2+2;4+2;6+2;8+2"/>
+-->
+	  	<property name="exprSpec" value="4+2;6+2;8+2"/>
+	</bean>
+
+	<bean id="numberMinusZero" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Number - Zero"/>
+	  	<property name="exprSpec" value="10-0;9-0;8-0;7-0;6-0;5-0;4-0;3-0;2-0;1-0;0-0"/>
+	</bean>
+
+	<bean id="numberMinusNumber" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Number - Number"/>
+	  	<property name="exprSpec" value="9-9;8-8;7-7;6-6;5-5;4-4;3-3;2-2;1-1"/>
+	</bean>
+
+	<bean id="doublesAddition" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Doubles"/>
+	  	<!-- <property name="exprSpec" value="2+2;3+3;4+4;5+5"/> -->
+	  	<property name="exprSpec" value="3+3;4+4;5+5"/>
+	</bean>
+
+	<bean id="doublesSubtraction" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Doubles Subtraction"/>
+	  	<property name="exprSpec" value="10-5;8-4;6-3;4-2"/>
+	</bean>
+
+	<bean id="numberPlusZero" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Plus Zero"/>
+	  	<property name="exprSpec" value="1+0;2+0;3+0;4+0;5+0;6+0;7+0;8+0;9+0;10+0"/>
+	</bean>
+
+	<bean id="zeroPlusNumber" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Zero Plus"/>
+	  	<property name="exprSpec" value="0+1;0+2;0+3;0+4;0+5;0+6;0+7;0+8;0+9;0+10"/>
+	</bean>
+
+	<bean id="rightNextToEachOther" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Right Beside Each Other"/>
+	  	<property name="exprSpec" value="10-9;9-8;8-7;7-6;6-5;5-4;4-3;3-2"/>
+	</bean>
+
+	<bean id="backwardsOne" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="Backwards 1"/>
+	  	<property name="exprSpec" value="10-1;9-1;8-1;7-1;6-1;5-1;4-1;3-1;2-1"/>
+	</bean>
+
+	<bean id="numberPlusOne" class="FlashCardGame" init-method="init">
+	  	<property name="name" value="1+ Number"/>
+	  	<property name="exprSpec" value="0+1;1+1;2+1;3+1;4+1;5+1;6+1;7+1;8+1;9+1;1+2;1+3;1+4;1+5;1+6;1+7;1+8;1+9"/>
+	 </bean>
+
+  	<bean id="zero" class="ComposerGame">
+  		<property name="games">
+  			<list>
+   				<ref bean="numberPlusZero"/> 		
+   				<ref bean="zeroPlusNumber"/> 		
+  			</list>
+  		</property>
+	</bean>
+
+
+  <bean id="addition5" class="AdditionGame" init-method="init">
+  	<property name="rows" value="4"/>
+  	<property name="cols" value="4"/>  	
+  	<property name="augendDieChooser">
+	  <bean class="util.DieChooserRegular">
+  		<property name="high" value="9"/>
+  		<property name="low" value="3"/>
+	  </bean>
+  	</property>
+ 	<property name="addendDieChooser">
+	  <bean class="util.DieChooserFixed">
+ 	 	<property name="value" value="5"/>
+ 	  </bean>
+ 	</property>
+  </bean>
+
+  <bean id="addition6" class="AdditionGame" init-method="init">
+  	<property name="rows" value="4"/>
+  	<property name="cols" value="4"/>  	
+  	<property name="augendDieChooser">
+	  <bean class="util.DieChooserRegular">
+  		<property name="high" value="9"/>
+  		<property name="low" value="3"/>
+	  </bean>
+  	</property>
+ 	<property name="addendDieChooser">
+	  <bean class="util.DieChooserFixed">
+ 	 	<property name="value" value="6"/>
+ 	  </bean>
+ 	</property>
+  </bean>
+
+  <bean id="addition7" class="AdditionGame" init-method="init">
+  	<property name="rows" value="4"/>
+  	<property name="cols" value="4"/>  	
+  	<property name="augendDieChooser">
+	  <bean class="util.DieChooserRegular">
+  		<property name="high" value="9"/>
+  		<property name="low" value="3"/>
+	  </bean>
+  	</property>
+ 	<property name="addendDieChooser">
+	  <bean class="util.DieChooserFixed">
+ 	 	<property name="value" value="7"/>
+ 	  </bean>
+ 	</property>
+  </bean>
+
+
+
+  <bean id="subtraction2" class="SubtractionGame" init-method="init">
+  	<property name="rows" value="4"/>
+  	<property name="cols" value="4"/>  	
+  	<property name="subtrahendDieChooser">
+  	  <bean class="util.DieChooserFixed">
+  		<property name="value" value="2"/>
+ 	  </bean>
+  	</property>
+  	<property name="differenceDieChooser" ref="dieChooserRegular_1to9"/>
+  </bean>
+
+  <bean id="subtraction3" class="SubtractionGame" init-method="init">
+  	<property name="rows" value="4"/>
+  	<property name="cols" value="4"/>  	
+  	<property name="subtrahendDieChooser">
+  	  <bean class="util.DieChooserFixed">
+  		<property name="value" value="3"/>
+ 	  </bean>
+  	</property>
+  	<property name="differenceDieChooser" ref="dieChooserRegular_1to9"/>
+  </bean>
+
+  <bean id="dieChooserRegular_0to9" class="util.DieChooserRegular">
+  	<property name="high" value="9"/>
+  	<property name="low" value="0"/>
+  </bean>
+
+  <bean id="dieChooserRegular_1to9" class="util.DieChooserRegular">
+  	<property name="high" value="9"/>
+  	<property name="low" value="1"/>
+  </bean>
+
+  <bean id="dieChooserProgressive" class="util.DieChooserProgressive">
+  	<property name="high" value="5"/>
+  	<property name="low" value="3"/>
+  	<property name="increment" value="1"/>
+  	<property name="current" value="3"/>
+  </bean>
+
+</beans>
