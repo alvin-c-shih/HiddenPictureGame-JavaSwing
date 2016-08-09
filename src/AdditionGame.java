@@ -22,7 +22,7 @@ extends GameBase
     	"<html>"
     	+"<table cellspacing='0' cellpadding='0'>"
 		+"<tr><td align='right'>%s</td></tr>"
-		+"<tr><td align='right'><u>+%s</u></td></tr>"
+		+"<tr><td align='right'><u>+ %s</u></td></tr>"
 		+"</table>"
 		+"</html>";
 
