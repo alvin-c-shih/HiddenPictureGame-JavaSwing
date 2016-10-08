@@ -7,34 +7,16 @@
            ">
 
 	<bean id="gameCycler" class="game_logic.GameCycler">
-	  	<property name="rows" value="4"/>
-  		<property name="cols" value="4"/>  	
   		<property name="games">
   			<list>
-  		  		<ref bean="division1"/>
-  		  		<ref bean="division3"/>
-  		  		<ref bean="division2"/>
-  		  		<ref bean="composerAddSubMul"/>
-  		  		<!--
   		  		<ref bean="curvyNumbers"/>
   		  		<ref bean="composerTactical"/>
   		  		<ref bean="composerTier2"/>
   		  		<ref bean="composerTier3"/>
-  		  		-->
+  		  		<ref bean="composerTier1"/>
   			</list>
   		</property>
 	</bean>
-
-	<bean id="composerAddSubMul" class="ComposerGame">
-  		<property name="games">
-  			<list>
-  		  		<ref bean="multiplication"/>
-  				<ref bean="subtraction"/>
-  				<ref bean="addition"/>
-  			</list>
-  		</property>
-	</bean>
-
 
   	<bean id="composerTactical" class="ComposerGame">
   		<property name="games">
@@ -260,12 +242,7 @@
  	</property>
   </bean>
 
-  <bean id="addition" class="AdditionGame" init-method="init">
-  	<property name="rows" value="4"/>
-  	<property name="cols" value="4"/>
-  	<property name="augendDieChooser" ref="dieChooserRegular_0to9"/>
-  	<property name="addendDieChooser" ref="dieChooserRegular_3to9"/>
-  </bean>
+
 
   <bean id="subtraction2" class="SubtractionGame" init-method="init">
   	<property name="rows" value="4"/>
@@ -279,21 +256,14 @@
   </bean>
 
   <bean id="subtraction3" class="SubtractionGame" init-method="init">
-  	<property name="rows" value="5"/>
-  	<property name="cols" value="5"/>  	
+  	<property name="rows" value="4"/>
+  	<property name="cols" value="4"/>  	
   	<property name="subtrahendDieChooser">
   	  <bean class="util.DieChooserFixed">
   		<property name="value" value="3"/>
  	  </bean>
   	</property>
   	<property name="differenceDieChooser" ref="dieChooserRegular_1to9"/>
-  </bean>
-
-  <bean id="subtraction" class="SubtractionGame" init-method="init">
-  	<property name="rows" value="5"/>
-  	<property name="cols" value="5"/>  	
-  	<property name="subtrahendDieChooser" ref="dieChooserRegular_3to9"/>
-  	<property name="differenceDieChooser" ref="dieChooserRegular_0to9"/>
   </bean>
 
   <bean id="dieChooserRegular_0to9" class="util.DieChooserRegular">
@@ -306,79 +276,11 @@
   	<property name="low" value="1"/>
   </bean>
 
-  <bean id="dieChooserRegular_3to9" class="util.DieChooserRegular">
-  	<property name="high" value="9"/>
-  	<property name="low" value="3"/>
-  </bean>
-
-
   <bean id="dieChooserProgressive" class="util.DieChooserProgressive">
   	<property name="high" value="5"/>
   	<property name="low" value="3"/>
   	<property name="increment" value="1"/>
   	<property name="current" value="3"/>
-  </bean>
-  
-  <bean id="multiplication" class="MultiplicationGame" init-method="init">
-  	<property name="rows" value="4"/>
-  	<property name="cols" value="4"/>
-  	<property name="multiplierDieChooser">
-  	
-	  <bean class="util.DieChooserRegular">
-  		<property name="high" value="9"/>
-  		<property name="low" value="0"/>
-	  </bean>
-  	</property>
- 	<property name="multiplicandDieChooser">
-	  <bean class="util.DieChooserRegular">
-  		<property name="high" value="9"/>
-  		<property name="low" value="0"/>
-	  </bean>
- 	</property>
-  </bean>
-
-  <bean id="division1" class="DivisionWithoutRemainderGame" init-method="init">
-  	<property name="rows" value="4"/>
-  	<property name="cols" value="4"/>  	
-  	<property name="divisorDieChooser">
-  	  <bean class="util.DieChooserRegular">
-  		<property name="high" value="9"/>
-  		<property name="low" value="2"/>
-	  </bean>
-  	</property>
- 	<property name="quotientDieChooser" ref="dieChooserRegular_0to9"/>
-  </bean>
-  
-  <bean id="division2" class="DivisionWithRemainderGame" init-method="init">
-  	<property name="rows" value="4"/>
-  	<property name="cols" value="4"/>  	
-  	<property name="dividendDieChooser">
-  	  <bean class="util.DieChooserRegular">
-  		<property name="high" value="20"/>
-  		<property name="low" value="0"/>
-	  </bean>
-  	</property>
- 	<property name="divisorDieChooser">
-  	  <bean class="util.DieChooserFixed">
-  		<property name="value" value="2"/>
- 	  </bean>
- 	</property>
-  </bean>
-
-  <bean id="division3" class="DivisionWithRemainderGame" init-method="init">
-  	<property name="rows" value="4"/>
-  	<property name="cols" value="4"/>  	
-  	<property name="dividendDieChooser">
-  	  <bean class="util.DieChooserRegular">
-  		<property name="high" value="30"/>
-  		<property name="low" value="0"/>
-	  </bean>
-  	</property>
- 	<property name="divisorDieChooser">
-  	  <bean class="util.DieChooserFixed">
-  		<property name="value" value="3"/>
- 	  </bean>
- 	</property>
   </bean>
 
 </beans>

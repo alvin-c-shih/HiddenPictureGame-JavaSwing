@@ -9,7 +9,7 @@ import util.DieChooser;
 import util.StringUtil;
 
 // dividend + divisor = quotient
-class DivisionGame
+class DivisionWithRemainderGame
 extends GameBase
 {
 	private DieChooser dividendDieChooser;
